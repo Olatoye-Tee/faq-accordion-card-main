@@ -70,6 +70,8 @@ body{
     font-size: 1.2rem;
     font-family: $font-family;
     font-weight: 400;
+
+    background-color: var(--color-soft-blue);
 }
 
 *,
@@ -310,8 +312,14 @@ body{
     }
 }
 
-.footer{
-    color: var(--color-very-dark-desaturated-blue);
+.attribution{
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    color: var(--color-very-dark-grayish-blue);
+
+    margin-top: 1rem;
+
     a{
         color: var(--color-soft-red);
     }
