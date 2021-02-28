@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | FAQ Accordion Card</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <section class="faq">
@@ -21,10 +18,10 @@
       <div class="faq__main">
         <h2 class="faq__header">faq</h2>
         <div class="tab">
-          <button class="accordion">
+          <div class="accordion" tabindex="0">
             <h3 class="accordion__text">How many team members can I invite?</h3>
-            <img src="images/icon-arrow-down.svg" alt="accordion icon">
-          </button>
+            <img class="accordion__icon" src="images/icon-arrow-down.svg" alt="accordion icon">
+          </div>
           <div class="panel">
             <p class="panel__text">
               You can invite up to 2 additional users on the Free plan. There is no limit on 
@@ -33,10 +30,10 @@
           </div>
         </div>
         <div class="tab">
-          <button class="accordion">
+          <div class="accordion" tabindex="0">
             <h3 class="accordion__text">What is the maximum file upload size?</h3>
-            <img src="images/icon-arrow-down.svg" alt="accordion icon">
-          </button>
+            <img class="accordion__icon" src="images/icon-arrow-down.svg" alt="accordion icon">
+          </div>
           <div class="panel">
             <p class="panel__text">
               No more than 2GB. All files in your account must fit your allotted storage space.
@@ -44,10 +41,10 @@
           </div>
         </div>
         <div class="tab">
-          <button class="accordion">
+          <div class="accordion" tabindex="0">
             <h3 class="accordion__text">How do I reset my password?</h3>
-            <img src="images/icon-arrow-down.svg" alt="accordion icon">
-          </button>
+            <img class="accordion__icon" src="images/icon-arrow-down.svg" alt="accordion icon">
+          </div>
           <div class="panel">
             <p class="panel__text">
               Click “Forgot password” from the login page or “Change password” from your profile page.
@@ -56,10 +53,10 @@
           </div>
         </div>
         <div class="tab">
-          <button class="accordion">
+          <div class="accordion" tabindex="0">
             <h3 class="accordion__text">Can I cancel my subscription?</h3>
-            <img src="images/icon-arrow-down.svg" alt="accordion icon">
-          </button>
+            <img class="accordion__icon" src="images/icon-arrow-down.svg" alt="accordion icon">
+          </div>
           <div class="panel">
             <p class="panel__text">
               Yes! Send us a message and we’ll process your request no questions asked.
@@ -67,10 +64,10 @@
           </div>
         </div>
         <div class="tab">
-          <button class="accordion">
+          <div class="accordion" tabindex="0">
             <h3 class="accordion__text">Do you provide additional support?</h3>
-            <img src="images/icon-arrow-down.svg" alt="accordion icon">
-          </button>
+            <img class="accordion__icon" src="images/icon-arrow-down.svg" alt="accordion icon">
+          </div>
           <div class="panel">
             <p class="panel__text">
               Chat and email support is available 24/7. Phone lines are open during normal business hours.
@@ -84,5 +81,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Olatoye-Tee</a>.
   </footer>
+  <script src="index.js"></script>
 </body>
 </html>

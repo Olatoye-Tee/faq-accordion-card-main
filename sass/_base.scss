@@ -17,6 +17,42 @@
  --color-light-grayish-blue: hsl(240, 5%, 91%);
 }
 
+$font-family:'Kumbh Sans', sans-serif;
+
+/////////////Media Breakpoints///////////////////
+$breakpoint-first-max:  59.375em;        //950px 
+$breakpoint-first-min:  49.375em;            //790px
+$breakpoint-second-max:  49.3125em;       //789px
+$breakpoint-second-min: 23.4375em;             //375px
+$breakpoint-third-max: 23.375em;             //374px
+$breakpoint-third-min:  20em;             //320px
+
+/////////////////Media Queries////////////////////
+//Apply the largest first and move downwards
+
+//first media query
+@mixin first-breakpoint {
+    @media screen and (min-width: $breakpoint-first-min) and (max-width: $breakpoint-first-max) {
+        @content;
+    }
+}
+
+//second media query
+@mixin second-breakpoint {
+    @media screen and (min-width: $breakpoint-second-min) and (max-width: $breakpoint-second-max){
+        @content;
+    }
+}
+
+//third media query
+@mixin third-breakpoint {
+    @media screen and (min-width: $breakpoint-third-min) and (max-width: $breakpoint-third-max){
+        @content;
+    }
+}
+
+
+
 html, body{
     height: 100%;
     width: 100%;
@@ -30,63 +66,247 @@ html{
 body{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    font-family: $font-family;
+    font-weight: 400;
 }
 
 *,
 *::before,
 *::after{
+    margin: 0;
+    padding: 0;
     box-sizing: inherit;
 }
 
 .faq{
-    height: 99%;
+    min-height: 97%;
     width: 100%;
     background-image: linear-gradient(to bottom, var(--color-soft-violet), var(--color-soft-blue));
     flex: 1 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    
     &__container{
-        height: auto;
-        width: 80%;
+        min-height: 48rem;
+        width: 80rem;
         border-radius: 15px;
         background-color: var(--color-light-grayish-blue);
+        box-shadow: 4px 4px 30px 2px var(--color-dark-grayish-blue);
+        
+        display: flex;
+        flex-direction: row;
+
+        overflow: visible;
+
+        //first media query
+        @include first-breakpoint{
+            width: 70rem;
+        }
+
+        //second media query
+        @include second-breakpoint {
+            min-height: 35rem;
+            width: 33rem;
+
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        //third media query
+        @include third-breakpoint {
+            min-height: 35rem;
+            width: 30rem;
+
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     &__image{
         width: 50%;
-        height: auto;
+        height: 100%;
+        background: url(../images/illustration-woman-online-desktop.svg) no-repeat top 20px right 10px,
+                    url(../images/bg-pattern-desktop.svg) no-repeat bottom -80px right 32px;
+        
+        position: relative;
+
+
+
+        //first media query
+        @include first-breakpoint{
+            background: url(../images/illustration-woman-online-desktop.svg) no-repeat top 35px right 4px,
+            url(../images/bg-pattern-desktop.svg) no-repeat bottom -81px right -31px;
+        }
+
+        //second media query
+        @include second-breakpoint {
+            position: relative;
+            height: 8rem;
+            width: 100%;
+            background: none;
+        }
+        
+        //third media query
+        @include third-breakpoint {
+            position: relative;
+            height: 8rem;
+            width: 100%;
+            background: none;
+        }
+
+        &::before{
+            left: 0;
+            display: block;
+            content: '';
+            height: 200px;
+            width: 200px;
+            left: -102px;
+            top: 157px;
+            position: absolute;
+            background: url(../images/illustration-box-desktop.svg) no-repeat;
+
+            //first media query
+            @include first-breakpoint{
+                transform: scale(.7);
+                top: 200px;
+                left: -90px;
+            }
+
+            //second media query
+            @include second-breakpoint{
+                display: none;
+            }
+            
+            //third media query
+            @include third-breakpoint{
+                display: none;
+            }
+        }
+
+        &::after{
+
+        //second media query
+        @include second-breakpoint{
+            display: block;
+            content: '';
+            position: absolute;
+            height: 20rem;
+            width: 100%;
+            right: -4%;
+            bottom: 0;
+            transform: translate(0%, 7%);
+            background: url(../images/illustration-woman-online-mobile.svg) no-repeat,
+                        url(../images/bg-pattern-mobile.svg) no-repeat top 92px right 61px;
+        }
+        
+        //third media query
+        @include third-breakpoint{
+            display: block;
+            content: '';
+            position: absolute;
+            height: 20rem;
+            width: 100%;
+            right: -4%;
+            bottom: 0;
+            transform: translate(0%, 7%);
+            background: url(../images/illustration-woman-online-mobile.svg) no-repeat,
+                        url(../images/bg-pattern-mobile.svg) no-repeat top 92px right 33px;
+        }
+        }
     }
 
     &__main{
+        margin-left: auto;
         height: auto;
         width: 50%;
+        padding: 5rem 6rem 5rem 1rem;
+
+        //second media query
+        @include second-breakpoint {
+            height: auto;
+            width: 100%;
+            padding: 3rem 3rem 4rem 3rem;
+        }
+        
+        //third media query
+        @include third-breakpoint {
+            height: auto;
+            width: 100%;
+            padding: 2.7rem 2.7rem 3.5rem 2.7rem;
+        }
     }
 
     &__header{
         text-transform: uppercase;
+        margin-bottom: 2rem;
+        color: var(--color-very-dark-desaturated-blue);
+        font-size: 2rem;
+
+        // //second media query
+        @include second-breakpoint{
+            text-align: center;
+        }
+        
+        // //third media query
+        @include third-breakpoint{
+            text-align: center;
+        }
     }
 }
 
 .tab{
+    border-top: 1px solid var(--color-dark-grayish-blue);
     padding: 2% 0;
-    width: 100%;
-    border-top: 2px solid var(--color-soft-blue);
 
     &:first-of-type{
-        border-top: none;
+        border: none;
     }
 }
 
-
 .accordion{
-    background-color: var(--color-light-grayish-blue);
-    border: none;
-    outline: var(--color-soft-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: .5rem 0;
+    cursor: pointer;
+
+    outline-color: var(--color-soft-red);
 
     &__text{
-        margin-right: auto;
+        display: inline-block;
+        color: var(--color-very-dark-grayish-blue);
+    }
+
+    &__icon{
+        transition: rotate .4s;
+    }
+}
+
+.accordion:active{
+
+    > .accordion__text{
+        color: var(--color-very-dark-desaturated-blue);
+    }
+}
+
+.accordion:hover{
+
+    > .accordion__text{
+        color: var(--color-soft-red);
+    }
+}
+
+.panel{
+    display: none;
+    &__text{
+        color: var(--color-dark-grayish-blue);
     }
 }
 
@@ -95,4 +315,9 @@ body{
     a{
         color: var(--color-soft-red);
     }
+}
+
+//Animations & Transitions
+.rotate{
+    transform: rotate(180deg);
 }
